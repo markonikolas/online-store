@@ -1,0 +1,20 @@
+main + .icon
+  display: flex
+  height: calc( 15vh - #{$header-height} )
+  justify-content: center
+  align-items: flex-start
+  width: 100%
+  cursor: default
+  img
+    animation: hover 4000ms 1000ms ease 5 alternate
+    width: 80px
+    cursor: pointer
+
+@keyframes hover
+  0%
+    transform: translateY(0%)
+
+  50%
+    transform: translateY(30%)
+  100%
+    transform: translateY(10%)

@@ -1,5 +1,17 @@
-// colors
-$color-primary: #6c757d
-$color-secondary: #585858
-// dimenisons  
+// COLORS
+$color-primary: #343a40
+$color-secondary: #ececec
+
+// DIMENSIONS  
 $header-height: 80.875px
+
+// MIXINS
+@mixin header-transitions()
+  -webkit-transition: all 250ms ease-in
+  -moz-transition: all 250ms ease-in
+  -o-transition: all 250ms ease-in
+  transition: all 250ms ease-in
+
+@mixin flex-column()
+  display: flex
+  flex-direction: column

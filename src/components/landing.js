@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const Landing = () => {
+const Landing = ({ open, onClick }) => {
+  const isOpen = open ? 'shrink' : '';
   return (
-    <main className="container-fluid d-flex justify-content-center align-items-center">
-      <div className="button-wrapper">
-        <input
-          className="btn btn-light btn-lg mr-4"
-          type="button"
-          value="View Products"
-        />
-        <input
-          className="btn btn-outline-light btn-lg"
-          type="button"
-          value="Sign Up"
-        />
-      </div>
-    </main>
+    <Fragment>
+      <main
+        className={`container-fluid d-flex mb-5 justify-content-center align-items-center ${isOpen}`}>
+        <div className="button-wrapper">
+          <input
+            className="btn btn-dark btn-lg mr-4"
+            type="button"
+            value="View Products"
+            onClick={onClick}
+          />
+          <input
+            className="btn btn-outline-primary btn-lg"
+            type="button"
+            value="Sign Up"
+          />
+        </div>
+      </main>
+    </Fragment>
   );
 };
 
