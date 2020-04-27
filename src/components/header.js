@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /* Components */
 import Icon from './icons/icon';
 import Navigation from './navigation';
 import MenuIcon from './icons/menuIcon';
 import BadgeIcon from './icons/badgeIcon';
+import ShoppingCart from './shoppingCart';
 
 /* Icons */
-import Cart from '../assets/icons/shopping-cart.svg';
-import User from '../assets/icons/user.svg';
-import Menu from '../assets/icons/menu.svg';
+import ShoppingCartSVG from '../assets/icons/shopping-cart.svg';
+import UserSVG from '../assets/icons/user.svg';
+import MenuSVG from '../assets/icons/menu.svg';
 
-const Header = ({ open, setOpen }) => {
+const Header = ({ open, setOpen, cartItems, removeItemFromCart }) => {
+  const [buttonClicked, setButtonClicked] = useState(false);
   const isOpen = open ? 'is-opened' : '';
   return (
     <header
@@ -20,11 +22,22 @@ const Header = ({ open, setOpen }) => {
         <h1>Online Store</h1>
       </div>
       <div className="icons d-flex align-items-center justify-content-between">
-        <BadgeIcon name={Cart} alt="Shopping Cart" />
-        <Icon name={User} alt="User" />
-        <MenuIcon name={Menu} alt="Menu" onClick={setOpen} />
+        <BadgeIcon
+          name={ShoppingCartSVG}
+          alt="Shopping Cart"
+          cart={cartItems.length}
+          onClick={() => setButtonClicked(!buttonClicked)}
+        />
+        <Icon name={UserSVG} alt="User" />
+        <MenuIcon name={MenuSVG} alt="Menu" onClick={setOpen} />
       </div>
       <Navigation />
+      <ShoppingCart
+        cartItems={cartItems}
+        buttonClicked={buttonClicked}
+        removeItemFromCart={removeItemFromCart}
+        onClick={() => setButtonClicked(false)}
+      />
     </header>
   );
 };

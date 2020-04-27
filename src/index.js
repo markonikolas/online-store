@@ -7,7 +7,7 @@ import OnlineStore from './App';
 /* Styles */
 import 'bootstrap/dist/css/bootstrap.css';
 import 'normalize.css';
-import './assets/sass/App.sass';
+import './assets/App.sass';
 
 ReactDOM.render(
   <React.StrictMode>

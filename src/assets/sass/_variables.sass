@@ -1,0 +1,27 @@
+// COLORS
+$color-primary: #343a40
+$color-secondary: #ececec
+$color-shadow-default: 1px 1px 20px  lighten($color-secondary, 3%)
+$color-shadow-hover: 1px 1px 20px  darken($color-secondary, 1%)
+
+// DIMENSIONS  
+$header-height: 80.875px
+$header-height-opened: calc(40px + #{$header-height})
+
+// MIXINS
+@mixin header-transitions()
+  -webkit-transition: all 250ms ease-in
+  -moz-transition: all 250ms ease-in
+  -o-transition: all 250ms ease-in
+  transition: all 250ms ease-in
+
+@mixin flex-column()
+  display: flex
+  flex-direction: column
+@mixin no-select()
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
