@@ -1,52 +1,79 @@
 [
   {
+    "id": "a5ea95ee-5877-4c32-9ede-e18a9ccaf937",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
     "name": "CHECK PRINT SHIRT",
-    "price": 110
+    "price": 110,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis pariatur sint autem veniam vel eaque atque vitae alias repudiandae dolorum tempora libero porro perferendis eligendi eveniet voluptatum quis, dignissimos qui consectetur accusantium assumenda eius! Culpa perferendis earum asperiores, veniam a inventore omnis adipisci nihil. Asperiores porro aspernatur molestiae minima necessitatiillo atque sed natus ut? Aliquid soluta sed magni nemo vitae? Odio, omnis cupiditate ipsam cum quis corrupti?"
   },
   {
+    "id": "ecce2523-c279-454a-a0e5-ccfd238c9ba3",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/FLGLO4FAL12-BEIBR?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
     "name": "GLORIA HIGH LOGO SNEAKER",
-    "price": 91
+    "price": 91,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis pariatur sint autem veniam vel eaque atque vitae alias repudiandae dolorum tempora libero porro perferendis eligendi eveniet voluptatum quis, dignissimos qui consectetur accusantium assumenda eius! Culpa perferendisadipisci nihil. Asperiores porro aspernatur molestiae minima necessitatibus, odio, et assumenda, rerum reprehenderit maxime tempore non sit autem mollitia illo atque sed natus ut? Aliquid soluta sed magni nemo vitae? Odio, omnis cupiditate ipsam cum quis corrupti?"
   },
   {
+    "id": "8524f994-b8e1-4cd7-942b-a012c5e5a3e7",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/HWVG6216060-TAN?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
     "name": "CATE RIGID BAG",
-    "price": 94.5
+    "price": 94.5,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis pariatur sint autem veniam vel eaque atque vitae alias repudiandae dolorum tempora libero porro perferendis eligendi eveniet voluptatum quis, dignissimos qui consectetur accusantium assumenda eius! Culpa perferendis earum asperiores."
   },
   {
+    "id": "bd3516ea-4ab3-4b35-9d0d-fb1afbea308e",
     "imgUrl": "http://guesseu.scene7.com/is/image/GuessEU/WC0001FMSWC-G5?wid=520&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
     "name": "GUESS CONNECT WATCH",
-    "price": 438.9
+    "price": 438.9,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis pariatur sint autem veniam vel eaque atque vitae alias repudiandae dolorum tempora libero porro perferendis eligendi eveniet voluptatum quis, dignissimos qui consectetur accusantium assumenda eius! Culpa perferendis earum asperiores, veniam a inventore omnis adipisci nihil. Asperiores porro aspernatur molestiae minima necessitatibus, odio, et assumenda, rerum reprehenderit maxime tempore non sit autem mollitia illo atque sed natus ut? Aliquid soluta sed magni nemo vitae? Odio, omnis cupiditate ipsam cum quis corrupti?"
   },
   {
+    "id": "df03f4bf-6bbb-4797-8180-7be3066e23fe",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/AW6308VIS03-SAP?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
     "name": "'70s RETRO GLAM KEFIAH",
-    "price": 20
+    "price": 20,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus, quisquam iusto doloribus neque pariatur, libero quis earum?"
   },
   {
+    "id": "6dfa8dad-f1ae-4b57-b5ce-2a52f7249551",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
     "name": "CHECK PRINT SHIRT",
-    "price": 110
+    "price": 110,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus expedita at facere cupiditate perferendis officia enim aliquid eius."
   },
   {
+    "id": "d345e7d6-72f9-4787-a776-57dbbd5eb325",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/FLGLO4FAL12-BEIBR?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
     "name": "GLORIA HIGH LOGO SNEAKER",
-    "price": 91
+    "price": 91,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus, quisquam iusto doloribus neque pariatur, libero quis earum? "
   },
   {
+    "id": "078bcea1-f7b1-46c8-9b7b-e931015fcc4b",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/HWVG6216060-TAN?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
     "name": "CATE RIGID BAG",
-    "price": 94.5
+    "price": 94.5,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus, quisquam iusto doloribus neque pariatur, libero quis earum? "
   },
   {
+    "id": "f0c172b2-d2f2-45d4-ad09-c6712a194a6a",
     "imgUrl": "http://guesseu.scene7.com/is/image/GuessEU/WC0001FMSWC-G5?wid=520&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
     "name": "GUESS CONNECT WATCH",
-    "price": 438.9
+    "price": 438.9,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus, quisquam iusto doloribus neque pariatur, libero quis earum? "
   },
   {
+    "id": "14f54ec8-c131-428f-bcd3-b9ae2e7ec350",
     "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/AW6308VIS03-SAP?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
     "name": "'70s RETRO GLAM KEFIAH",
-    "price": 20
+    "price": 20,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus."
+  },
+  {
+    "id": "4d9f41a1-731c-4dc2-ad5f-f1ad4462b529",
+    "imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
+    "name": "CHECK PRINT SHIRT",
+    "price": 110,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam veniam, voluptas incidunt eligendi itaque asperiores voluptate iusto, adipisci suscipit commodi aut eaque corrupti laboriosam, nobis iure modi explicabo accusantium quo atque. Libero molestiae enim sequi doloribus dolore optio provident ratione voluptatibus necessitatibus accusamus hic, molestias voluptatem non reiciendis assumenda ex aliquam alias culpa incidunt quaerat accusantium soluta eum exercitationem? Quod minus, deserunt a accusamus."
   }
 ]
