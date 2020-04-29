@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-
+import 'animate.css';
 import _, { throttle, debounce } from 'lodash';
+import { calculateSubtotals } from './helpers/helpers';
 
 /* Components */
 import Header from './components/header';
@@ -96,12 +97,13 @@ class OnlineStore extends Component {
       handleProductClick,
     } = this;
     const items = _.filter(db, (item) => item.inCart);
+    const cartItems = calculateSubtotals(items);
     return (
       <Fragment>
         <Header
           open={open}
           setOpen={setOpen}
-          cartItems={items}
+          cartItems={cartItems}
           removeItemFromCart={this.toggleCartItem}
         />
         <Landing open={open} />

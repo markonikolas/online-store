@@ -11,7 +11,9 @@ const ProductItem = ({
   addItemToCart,
 }) => {
   return (
-    <div className="product-item container-fluid" onClick={onProductClick}>
+    <div
+      className="product-item container-fluid animated pulse"
+      onClick={onProductClick}>
       <div className="product-image d-flex flex-grow-1 p-3">
         <img src={imgUrl} alt={name} />
       </div>

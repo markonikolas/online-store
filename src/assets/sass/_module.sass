@@ -1,11 +1,11 @@
 .icons
   min-width: 160px
-
+  min-height: $header-height
 .icon
   position: relative
   cursor: pointer
   img
-    width: 28px
+    width: 24px
 
 .notification
   position: absolute
@@ -38,6 +38,7 @@
 .product-item
   cursor: pointer
   box-shadow: $color-shadow-default
+  border-radius: $radius-default
   transition: 350ms
   &:hover
     box-shadow: $color-shadow-hover
@@ -65,15 +66,11 @@
 .to-top-button
   display: none
   position: fixed
-  width: 50px
-  height: 50px
-  border-radius: 50%
+  height: 40px
   border: none
   bottom: 30px
   right: 16px
-
-.shopping-cart
-  background-color: red
+  border-radius: 50%
 
 .absolute
   position: absolute
@@ -83,32 +80,39 @@
   width: calc(100vw - 45px)
   top: $header-height-opened
   background: white
-  box-shadow: 1px 1px 30px rgba(0,0,0,0.05)
-
-.close-cart
+  box-shadow: 1px 1px 30px rgba(0,0,0,0.08)
+  border-radius: $radius-default
+  overflow: hidden
+  z-index: 0
+.pointer
   cursor: pointer
-  position: absolute
-  right: 0
-.cart-item
-  &-name
-    width: 30%
-    h3
-      font-size: 1rem
-      font-weight: 800
-  &-image
-    max-width: 150px
-    img
-      width: 40%
-  &-quantity
-    min-width: 60px
-.order-details
-  li:first-child
-    width: calc(30% + 150px)
+
 .list-group-item
   border: none
   transition: 500ms
   &:hover
-    box-shadow: 1px 1px 30px rgba(0,0,0,0.05)
+    box-shadow: 1px 1px 30px rgba(0,0,0,0.125)
 .increment, .decrement
-  cursor: pointer
   @include no-select
+.cart
+  &-close
+    img
+      width: 20px
+  &-item
+    &-name
+      font-size: .9rem
+    &-remove
+      justify-self: end
+      font-size: 0.7rem
+      grid-column: -1 / -2
+    &-price
+      font-size: .8rem
+.header-container
+  position: relative
+  height: 100%
+  z-index: 1
+  background-color: #fff
+  box-shadow: $color-shadow-default
+.add-to-cart-btn:focus
+  box-shadow: none !important
+  // border-none

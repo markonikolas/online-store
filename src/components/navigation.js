@@ -3,9 +3,10 @@ import { Link as ScrollLink } from 'react-scroll';
 /* replace 'a' link with react-router's LINK */
 import { animationConfig } from '../animations/scroll';
 
-const Navigation = () => {
+const Navigation = ({ open }) => {
+  const fade = open ? 'fadeIn' : 'fadeOut';
   return (
-    <nav>
+    <nav className={`animated ${fade}`}>
       <ul className="d-flex justify-content-end">
         <li className="mr-5">
           <ScrollLink to="products" href="#products" {...animationConfig}>

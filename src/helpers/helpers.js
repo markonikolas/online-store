@@ -1,7 +1,13 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 
-// function shoppingCart(db) {
-//   return _.filter(db, (item) => item.inCart);
-// }
+function calculateSubtotals(itemsInCart) {
+  return _.map(itemsInCart, (item) => {
+    Object.defineProperty(item, 'quantity', { value: 1 });
+    Object.defineProperty(item, 'subtotal', {
+      value: item.price * item.quantity,
+    });
+    return item;
+  });
+}
 
-// export { shoppingCart };
+export { calculateSubtotals };

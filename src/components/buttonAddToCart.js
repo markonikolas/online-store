@@ -2,11 +2,11 @@ import React from 'react';
 import Check from '../assets/icons/check.svg';
 
 const AddToCartButton = ({ inCart, addItemToCart }) => {
-  const added = inCart ? 'success' : 'primary';
+  const added = inCart ? 'success animated pulse' : 'primary';
   return (
     <button
-      style={{ width: 150 }}
-      className={`btn btn-${added} btn-sm m-3`}
+      style={{ width: 150, animationDuration: '200ms' }}
+      className={`btn btn-${added} btn-sm m-3 add-to-cart-btn`}
       onClick={addItemToCart}>
       {inCart ? (
         <div>

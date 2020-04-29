@@ -4,9 +4,8 @@ import { Link as ScrollLink } from 'react-scroll';
 /* animation config */
 import { animationConfig } from '../animations/scroll';
 
-const Landing = ({ open }) => {
-  const isOpen = open ? 'shrink' : '';
-
+const Landing = ({ menuOpen }) => {
+  const isOpen = menuOpen ? 'shrink' : '';
   return (
     <Fragment>
       <main
