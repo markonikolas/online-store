@@ -1,65 +1,71 @@
 import React from 'react';
+import _ from 'lodash';
 
 /* Icons */
 import CloseSVG from '../assets/icons/cancel.svg';
-import CartSVG from '../assets/icons/shopping-cart.svg';
+import ArrowRightSVG from '../assets/icons/arrow-right.svg';
 /* Components */
 import ShoppingCartItem from './shoppingCartItem';
 import StaticField from './staticField';
-import ButtonIcon from './buttonIcon';
+import StaticFieldTop from './staticFieldTop';
+import Button from './button';
+import Icon from './icons/icon';
 
-const ShoppingCart = ({
-  cartItems,
-  onClick,
-  buttonClicked,
-  removeItemFromCart,
-}) => {
-  const transition = buttonClicked
-    ? 'absolute m-3 animated fadeInDownBig'
-    : 'absolute m-3 animated fadeOutUpBig';
+const ShoppingCart = ({ onClick, cartItem, cartItems, cartOpen, nextPage }) => {
+  const priceTotal = _.reduce(
+    cartItems,
+    (prev, cur) => {
+      const item = cartItem(cur.id);
+      return prev + item.subtotal;
+    },
+    0,
+  );
 
+  const transition = cartOpen
+    ? 'absolute fadeInDownBig'
+    : 'absolute fadeOutUpBig';
   const itemClass = 'list-group-item mb-3 l-grid';
-  return cartItems.length ? (
-    <div className={transition} style={{ zIndex: 0 }}>
-      <StaticField icon={CloseSVG} onClick={onClick} alt="Close Shopping Cart">
-        <li>Products</li>
-        <li>Quantity</li>
-        <li>Price</li>
-        <li>Subtotal</li>
-      </StaticField>
 
+  return cartItems.length ? (
+    <div className={'m-3 animated ' + transition}>
+      <StaticFieldTop onClick={onClick} />
       {cartItems.map((item) => (
         <ShoppingCartItem
+          itemData={item}
+          id={item.id}
           key={item.id}
-          removeItemFromCart={removeItemFromCart}
+          cartItem={cartItem}
           itemClass={itemClass}
-          items={item}
         />
       ))}
 
       <StaticField aditionalClass="l-custom-grid">
         <li>Total</li>
-        <li>$SUM</li>
+        <li>${Math.round(priceTotal)}</li>
       </StaticField>
 
       <StaticField aditionalClass="l-custom-grid">
-        <ButtonIcon text="Place Order" icon={CartSVG} alt="Place Order" />
-        <ButtonIcon text="Cancel" icon={CloseSVG} alt="Cancel Order" />
+        <Button>
+          <Icon
+            name={ArrowRightSVG}
+            alt="Next Page"
+            width={18}
+            onClick={nextPage}
+          />
+          <b className="ml-1">Next</b>
+        </Button>
+        <Button>
+          <Icon name={CloseSVG} alt="Cancel Order" width={18} />
+          <b className="ml-1">Cancel</b>
+        </Button>
       </StaticField>
     </div>
   ) : (
-    <div className={transition}>
-      <StaticField icon={CloseSVG} onClick={onClick} alt="Close Shopping Cart">
-        <li>Products</li>
-        <li>Quantity</li>
-        <li>Price</li>
-        <li>Subtotal</li>
-      </StaticField>
-      <p
-        className="m-3 text-muted text-center pb-3 pt-3"
-        style={{ fontSize: 12, zIndex: 0 }}>
+    <div className={'m-3 animated ' + transition}>
+      <StaticFieldTop onClick={onClick} />
+      <small className="m-3 pb-3 pt-3 text-muted text-center no-select">
         Cart is empty.
-      </p>
+      </small>
     </div>
   );
 };

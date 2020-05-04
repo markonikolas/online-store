@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const ShoppingCartItem = ({
-  items: { id, name, price, quantity, subtotal, imgUrl },
-  removeItemFromCart,
-}) => {
+const ShoppingCartItem = ({ cartItem, id }) => {
+  const item = cartItem(id);
+  const round = (n) => Math.round(n);
+  const {
+    data: { name, price, imgUrl, quantity },
+    subtotal,
+  } = item;
   return (
     <ul className="list-group-item mb-3 l-grid">
       <li className="l-grid-images">
@@ -11,23 +14,21 @@ const ShoppingCartItem = ({
       </li>
       <li className="cart-item-name">{name}</li>
       <li className="cart-item-quantity d-flex">
-        <span className="badge badge-primary mr-2">{quantity}</span>
-        {/* <span
-          className="increment pointer badge badge-light badge-pill mr-1"
-          onClick={() => (quantity === 10 ? null : setQuantity(quantity + 1))}>
+        <span
+          className="counter pointer badge badge-light badge-pill"
+          onClick={item.increment}>
           +
         </span>
+        <span className="badge badge-dark">{quantity}</span>
         <span
-          className="decrement pointer badge badge-light badge-pill"
-          onClick={() => (quantity === 1 ? null : setQuantity(quantity - 1))}>
+          className="counter pointer badge badge-light badge-pill"
+          onClick={item.decrement}>
           -
-        </span> */}
+        </span>
       </li>
-      <li className="cart-item-price"></li>
-      <li className="cart-item-price">${Math.round(subtotal)}</li>
-      <li
-        className="cart-item-remove pointer text-muted"
-        onClick={() => removeItemFromCart(id)}>
+      <li className="cart-item-price">${round(price)}</li>
+      <li className="cart-item-price">${round(subtotal)}</li>
+      <li className="cart-item-remove pointer text-muted" onClick={item.toggle}>
         Remove
       </li>
     </ul>

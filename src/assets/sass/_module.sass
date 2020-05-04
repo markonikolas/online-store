@@ -2,16 +2,16 @@
   min-width: 160px
   min-height: $header-height
 .icon
-  position: relative
   cursor: pointer
   img
     width: 24px
+  &-badge
+    position: relative
 
 .notification
-  position: absolute
-  top: -6px
-  right: -6px
-
+  position: absolute !important
+  right: -10px
+  bottom: 9px
 .logo
   display: flex
   align-items: center
@@ -71,7 +71,7 @@
   bottom: 30px
   right: 16px
   border-radius: 50%
-
+  z-index: 9999
 .absolute
   position: absolute
   display: flex
@@ -90,10 +90,11 @@
 .list-group-item
   border: none
   transition: 500ms
-  &:hover
-    box-shadow: 1px 1px 30px rgba(0,0,0,0.125)
-.increment, .decrement
+.counter
+  background-color: $color-secondary
   @include no-select
+  &:hover
+    background-color: darken($color-secondary, 5%)
 .cart
   &-close
     img
@@ -102,17 +103,25 @@
     &-name
       font-size: .9rem
     &-remove
-      justify-self: end
       font-size: 0.7rem
       grid-column: -1 / -2
+      justify-self: start
     &-price
       font-size: .8rem
+    &-quantity
+      max-width: 70px
+      justify-content: space-between
+      span:nth-child(2)
+        width: 20px
 .header-container
   position: relative
   height: 100%
   z-index: 1
   background-color: #fff
   box-shadow: $color-shadow-default
+  > ul
+    margin-bottom: 0
 .add-to-cart-btn:focus
   box-shadow: none !important
-  // border-none
+.no-select
+  @include no-select

@@ -1,20 +1,17 @@
 import React from 'react';
 import Icon from './icon';
 
-const BadgeIcon = ({ name, alt, cart, onClick }) => {
+const BadgeIcon = ({ name, alt, badgeNumber }) => {
   return (
-    <div onClick={onClick}>
-      <Icon name={name} alt={alt}>
-        {cart && (
-          <span className="notification badge badge-danger">
-            {cart || null}
-          </span>
-        )}
-      </Icon>
+    <div className="icon-badge">
+      <Icon name={name} alt={alt} />
+      {badgeNumber ? (
+        <span className="notification badge badge-dark pointer">
+          {badgeNumber}
+        </span>
+      ) : null}
     </div>
   );
 };
 
 export default BadgeIcon;
-
-/* dont need items from cart, just the lenght of the list. beacuse i wont manipulate data from header of the document. make another coponent, to header just pass cart.length */

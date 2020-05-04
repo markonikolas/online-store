@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
-/* replace 'a' link with react-router's LINK */
 import { animationConfig } from '../animations/scroll';
 
-const Navigation = ({ open }) => {
-  const fade = open ? 'fadeIn' : 'fadeOut';
+const Navigation = ({ navigationOpen }) => {
+  const fade = navigationOpen ? 'fadeIn' : 'fadeOut';
   return (
     <nav className={`animated ${fade}`}>
       <ul className="d-flex justify-content-end">

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import 'animate.css';
 import _, { throttle, debounce } from 'lodash';
-import { calculateSubtotals } from './helpers/helpers';
+
+import 'animate.css';
 
 /* Components */
 import Header from './components/header';
@@ -17,31 +17,30 @@ class OnlineStore extends Component {
       open: false /* needs work, probably dont need state for menu */,
       db: [],
     };
-    this.setOpen = this.setOpen.bind(this);
+    this.setMenuOpen = this.setMenuOpen.bind(this);
     this.showToTopButton = this.showToTopButton.bind(this);
-    this.handleProductClick = this.handleProductClick.bind(this);
-    this.toggleCartItem = this.toggleCartItem.bind(this);
+    this.addProperties = this.addProperties.bind(this);
+    this.cartItem = this.cartItem.bind(this);
+    this.nextPage = this.nextPage.bind(this);
 
     this.handleButtonVisibility = debounce(
       throttle(this.showToTopButton, 100),
       200,
     );
 
-    this.handleProductExpand = debounce(
-      throttle(this.handleProductClick, 100),
-      200,
-    );
-
     /* refs */
-    this.productsRef = React.createRef();
     this.buttonToTopRef = React.createRef();
   }
 
   /* lifecycle methods */
   componentDidMount() {
+    /* fetch all products */
     fetch('./db/products.json')
       .then((res) => res.json())
+      /* add aditional properties */
+      .then((data) => this.addProperties(data))
       .then((res) => this.setState(() => ({ db: [...res] })));
+
     window.addEventListener('scroll', this.handleButtonVisibility, false);
   }
 
@@ -50,71 +49,85 @@ class OnlineStore extends Component {
   }
 
   /* methods */
-  setOpen() {
+  setMenuOpen(e) {
     this.setState({ open: !this.state.open });
   }
 
   showToTopButton(e) {
-    /* needs work */
     e.preventDefault();
     const button = this.buttonToTopRef.current.classList;
     window.scrollY > 500 ? button.add('show') : button.remove('show');
   }
 
-  handleProductClick({ currentTarget }) {
-    /* needs work */
-    // this.productsRef.current.childNodes.forEach((child) =>
-    //   child.classList.remove('expand'),
-    // );
-    // scroller.scrollTo('products', { offset: -40 });
-    // currentTarget.classList.add('expand');
+  addProperties(db) {
+    db.forEach((item) => {
+      Object.defineProperties(item, {
+        inCart: {
+          value: false,
+          writable: true,
+          enumerable: true,
+        },
+        quantity: {
+          value: 1,
+          writable: true,
+          enumerable: true,
+        },
+      });
+    });
+    return db;
   }
 
-  toggleCartItem(id) {
+  cartItem(id) {
     const { db } = this.state;
+    const item = _.find(db, (prop) => prop.id === id);
 
-    const item = _.find(db, (item) => item.id === id);
-    const itemIndex = _.findIndex(db, item);
+    const updateDB = () => {
+      const itemIndex = _.findIndex(db, item);
+      const chunk1 = _.take(db, itemIndex);
+      const chunk2 = _.takeRight(db, db.length - itemIndex - 1);
+      this.setState(() => ({
+        db: [...chunk1, item, ...chunk2],
+      }));
+    };
 
-    const chunk1 = _.take(db, itemIndex);
-    const chunk2 = _.takeRight(db, db.length - itemIndex - 1);
-
-    if (item.inCart) {
-      item.inCart = false;
-    } else {
-      item.inCart = true;
-    } /* needs work */
-    this.setState(() => ({ db: [...chunk1, item, ...chunk2] }));
+    return {
+      subtotal: item.quantity * item.price,
+      data: item,
+      increment: () => {
+        return item.quantity < 10 ? item.quantity++ && updateDB() : null;
+      },
+      decrement: () => {
+        return item.quantity > 1 ? item.quantity-- && updateDB() : null;
+      },
+      toggle: () => {
+        if (item.inCart) {
+          item.inCart = false;
+        } else {
+          item.inCart = true;
+        }
+        updateDB();
+      },
+    };
   }
+
+  nextPage() {}
 
   render() {
     const { db, open } = this.state;
-    const {
-      setOpen,
-      productsRef,
-      buttonToTopRef,
-      toggleCartItem,
-      handleProductClick,
-    } = this;
-    const items = _.filter(db, (item) => item.inCart);
-    const cartItems = calculateSubtotals(items);
+    const { setMenuOpen, buttonToTopRef, cartItem, nextPage } = this;
+    const cartItems = _.filter(db, (item) => item.inCart);
     return (
       <Fragment>
         <Header
           open={open}
-          setOpen={setOpen}
+          setOpen={setMenuOpen}
+          cartItem={cartItem}
           cartItems={cartItems}
-          removeItemFromCart={this.toggleCartItem}
+          next={nextPage}
         />
         <Landing open={open} />
         <ButtonToTop buttonRef={buttonToTopRef} />
-        <Products
-          db={db}
-          name="products"
-          productsRef={productsRef}
-          onProductClick={handleProductClick}
-          addItemToCart={toggleCartItem}
-        />
+        <Products db={db} name="products" cartItem={cartItem} />
         <Footer />
       </Fragment>
     );

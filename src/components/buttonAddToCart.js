@@ -1,24 +1,21 @@
 import React from 'react';
-import Check from '../assets/icons/check.svg';
+import Icon from './icons/icon';
+import CheckSVG from '../assets/icons/check.svg';
 
-const AddToCartButton = ({ inCart, addItemToCart }) => {
+const AddToCartButton = ({ inCart, cartItem }) => {
   const added = inCart ? 'success animated pulse' : 'primary';
   return (
     <button
       style={{ width: 150, animationDuration: '200ms' }}
       className={`btn btn-${added} btn-sm m-3 add-to-cart-btn`}
-      onClick={addItemToCart}>
+      onClick={cartItem.toggle}>
       {inCart ? (
         <div>
-          <img
-            style={{ height: 16, marginRight: 10 }}
-            src={Check}
-            alt="Add to Shopping Cart"
-          />
-          <span>In Cart</span>
+          <Icon width={16} name={CheckSVG} alt="Add to Shopping Cart" />
+          <span className="ml-2">In Cart</span>
         </div>
       ) : (
-        <p>+ Add to Cart</p>
+        <p>+ Add</p>
       )}
     </button>
   );

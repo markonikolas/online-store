@@ -1,12 +1,7 @@
 import React from 'react';
 
-const Icon = ({ name, alt, children }) => {
-  return (
-    <div className="icon">
-      <img src={name} alt={alt} />
-      {children || null}
-    </div>
-  );
+const Icon = ({ name, alt, width = 24 }) => {
+  return <img className="icon" src={name} alt={alt} width={width} />;
 };
 
 export default Icon;
