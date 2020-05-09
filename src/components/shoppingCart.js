@@ -28,7 +28,7 @@ const ShoppingCart = ({
             />
           ))}
         </ul>
-        <div>Order Total</div>
+
         <div className="close-cart m-2">
           <img
             src={CloseSVG}
