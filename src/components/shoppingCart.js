@@ -28,7 +28,11 @@ const ShoppingCart = ({
             />
           ))}
         </ul>
+<<<<<<< HEAD
 
+=======
+        <div>Order Total</div>
+>>>>>>> 63a0c96b800154b934aa647ccc4a0aa0adc7c114
         <div className="close-cart m-2">
           <img
             src={CloseSVG}
