@@ -51,7 +51,7 @@ class OnlineStore extends Component {
     db.forEach((item) => {
       Object.defineProperties(item, {
         inCart: {
-          value: true,
+          value: false,
           writable: true,
           enumerable: true,
         },

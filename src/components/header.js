@@ -17,8 +17,8 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageNumber: 3,
-      cart: { type: 'cart', isOpen: true },
+      pageNumber: 0,
+      cart: { type: 'cart', isOpen: false },
       navigation: { type: 'navigation', isOpen: false },
       userDetails: {
         firstName: '',
