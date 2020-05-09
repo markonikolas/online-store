@@ -1,70 +1,67 @@
 import React from 'react';
-import _ from 'lodash';
 
-/* Icons */
-import CloseSVG from '../assets/icons/cancel.svg';
-import ArrowRightSVG from '../assets/icons/arrow-right.svg';
 /* Components */
-import ShoppingCartItem from './shoppingCartItem';
 import StaticField from './staticField';
-import StaticFieldTop from './staticFieldTop';
 import Button from './button';
-import Icon from './icons/icon';
+import PageToRender from './pageToRender';
+import OrderMessage from './orderMessage';
 
-const ShoppingCart = ({ onClick, cartItem, cartItems, cartOpen, nextPage }) => {
-  const priceTotal = _.reduce(
-    cartItems,
-    (prev, cur) => {
-      const item = cartItem(cur.id);
-      return prev + item.subtotal;
-    },
-    0,
-  );
-
+const ShoppingCart = ({
+  setPageNumber,
+  closeCart,
+  cartItem,
+  cartItems,
+  cartOpen,
+  onChange,
+  onSubmit,
+  pageNumber,
+  userDetails,
+  resetOrder,
+}) => {
   const transition = cartOpen
     ? 'absolute fadeInDownBig'
     : 'absolute fadeOutUpBig';
-  const itemClass = 'list-group-item mb-3 l-grid';
+  const page = setPageNumber();
+  const isLastPage = pageNumber === 3 ? 'd-none' : '';
 
   return cartItems.length ? (
-    <div className={'m-3 animated ' + transition}>
-      <StaticFieldTop onClick={onClick} />
-      {cartItems.map((item) => (
-        <ShoppingCartItem
-          itemData={item}
-          id={item.id}
-          key={item.id}
+    isLastPage ? (
+      <OrderMessage className={transition} resetOrder={resetOrder} />
+    ) : (
+      <div className={`m-3 animated ${transition}`}>
+        <PageToRender
           cartItem={cartItem}
-          itemClass={itemClass}
+          cartItems={cartItems}
+          closeCart={closeCart}
+          pageNumber={pageNumber}
+          onChange={onChange}
+          onSubmit={onSubmit}
+          {...userDetails}
         />
-      ))}
 
-      <StaticField aditionalClass="l-custom-grid">
-        <li>Total</li>
-        <li>${Math.round(priceTotal)}</li>
-      </StaticField>
-
-      <StaticField aditionalClass="l-custom-grid">
-        <Button>
-          <Icon
-            name={ArrowRightSVG}
-            alt="Next Page"
-            width={18}
-            onClick={nextPage}
-          />
-          <b className="ml-1">Next</b>
-        </Button>
-        <Button>
-          <Icon name={CloseSVG} alt="Cancel Order" width={18} />
-          <b className="ml-1">Cancel</b>
-        </Button>
-      </StaticField>
-    </div>
+        <StaticField
+          aditionalClass={`l-custom-grid container-fluid ${isLastPage}`}>
+          <label
+            className="p-3 pointer"
+            htmlFor="submit"
+            onClick={() =>
+              pageNumber === 0 || pageNumber === 2 ? page.next() : null
+            }>
+            {pageNumber === 2 ? 'Order' : 'Next'}
+          </label>
+          <Button onClick={() => (pageNumber === 0 ? null : page.prev())}>
+            <b>Prev</b>
+          </Button>
+          <Button onClick={() => resetOrder()}>
+            <b>Cancel</b>
+          </Button>
+        </StaticField>
+      </div>
+    )
   ) : (
     <div className={'m-3 animated ' + transition}>
-      <StaticFieldTop onClick={onClick} />
       <small className="m-3 pb-3 pt-3 text-muted text-center no-select">
-        Cart is empty.
+        Shopping Cart is empty.
       </small>
     </div>
   );

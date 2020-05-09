@@ -1,6 +1,8 @@
 .icons
   min-width: 160px
   min-height: $header-height
+  padding: 0
+
 .icon
   cursor: pointer
   img
@@ -92,20 +94,21 @@
   transition: 500ms
 .counter
   background-color: $color-secondary
+  width: 20px
+  text-align: center
   @include no-select
   &:hover
     background-color: darken($color-secondary, 5%)
 .cart
   &-close
-    img
-      width: 20px
+    justify-self: end
   &-item
     &-name
       font-size: .9rem
     &-remove
       font-size: 0.7rem
       grid-column: -1 / -2
-      justify-self: start
+      justify-self: center
     &-price
       font-size: .8rem
     &-quantity
@@ -125,3 +128,9 @@
   box-shadow: none !important
 .no-select
   @include no-select
+.form-control:invalid + .invalid-feedback
+  display: block
+.form-control:valid
+  background-color: green !important
+.thank-you
+  min-height: 300px

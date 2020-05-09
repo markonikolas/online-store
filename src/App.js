@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import _, { throttle, debounce } from 'lodash';
+import _ from 'lodash';
 
 import 'animate.css';
 
@@ -14,20 +14,12 @@ class OnlineStore extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false /* needs work, probably dont need state for menu */,
       db: [],
     };
-    this.setMenuOpen = this.setMenuOpen.bind(this);
     this.showToTopButton = this.showToTopButton.bind(this);
     this.addProperties = this.addProperties.bind(this);
     this.cartItem = this.cartItem.bind(this);
-    this.nextPage = this.nextPage.bind(this);
-
-    this.handleButtonVisibility = debounce(
-      throttle(this.showToTopButton, 100),
-      200,
-    );
-
+    this.showToTopButton = this.showToTopButton.bind(this);
     /* refs */
     this.buttonToTopRef = React.createRef();
   }
@@ -41,18 +33,14 @@ class OnlineStore extends Component {
       .then((data) => this.addProperties(data))
       .then((res) => this.setState(() => ({ db: [...res] })));
 
-    window.addEventListener('scroll', this.handleButtonVisibility, false);
+    window.addEventListener('scroll', this.showToTopButton, 0, false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleButtonVisibility, false);
+    window.removeEventListener('scroll', this.showToTopButton, false);
   }
 
   /* methods */
-  setMenuOpen(e) {
-    this.setState({ open: !this.state.open });
-  }
-
   showToTopButton(e) {
     e.preventDefault();
     const button = this.buttonToTopRef.current.classList;
@@ -63,7 +51,7 @@ class OnlineStore extends Component {
     db.forEach((item) => {
       Object.defineProperties(item, {
         inCart: {
-          value: false,
+          value: true,
           writable: true,
           enumerable: true,
         },
@@ -110,22 +98,17 @@ class OnlineStore extends Component {
     };
   }
 
-  nextPage() {}
-
   render() {
-    const { db, open } = this.state;
-    const { setMenuOpen, buttonToTopRef, cartItem, nextPage } = this;
-    const cartItems = _.filter(db, (item) => item.inCart);
+    const { db } = this.state;
+    const { buttonToTopRef, cartItem } = this;
+    const cartItems = _.filter(
+      db,
+      (item) => item.inCart,
+    ); /* toggle all for testing */
     return (
       <Fragment>
-        <Header
-          open={open}
-          setOpen={setMenuOpen}
-          cartItem={cartItem}
-          cartItems={cartItems}
-          next={nextPage}
-        />
-        <Landing open={open} />
+        <Header cartItem={cartItem} cartItems={cartItems} />
+        <Landing />
         <ButtonToTop buttonRef={buttonToTopRef} />
         <Products db={db} name="products" cartItem={cartItem} />
         <Footer />

@@ -8,20 +8,20 @@ const ShoppingCartItem = ({ cartItem, id }) => {
     subtotal,
   } = item;
   return (
-    <ul className="list-group-item mb-3 l-grid">
+    <ul className="p-0 mb-3 l-grid">
       <li className="l-grid-images">
         <img src={imgUrl} alt={name} />
       </li>
       <li className="cart-item-name">{name}</li>
       <li className="cart-item-quantity d-flex">
         <span
-          className="counter pointer badge badge-light badge-pill"
+          className="counter pointer badge badge-light"
           onClick={item.increment}>
           +
         </span>
         <span className="badge badge-dark">{quantity}</span>
         <span
-          className="counter pointer badge badge-light badge-pill"
+          className="counter pointer badge badge-light"
           onClick={item.decrement}>
           -
         </span>

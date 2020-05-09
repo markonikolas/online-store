@@ -4,11 +4,10 @@ import { Link as ScrollLink } from 'react-scroll';
 /* animation config */
 import { animationConfig } from '../animations/scroll';
 
-const Landing = ({ menuOpen }) => {
-  const isOpen = menuOpen ? 'shrink' : '';
+const Landing = () => {
   return (
     <main
-      className={`container-fluid d-flex mb-5 justify-content-center align-items-center ${isOpen}`}>
+      className={`container-fluid d-flex mb-5 justify-content-center align-items-center`}>
       <div className="button-wrapper">
         <ScrollLink to="products" {...animationConfig}>
           <input
